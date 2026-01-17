@@ -1,24 +1,36 @@
-# Aplicación TO-DO (Frontend / UI)
+# To-Do List (React + Vite)
 
-## Descripción
+Aplicación de gestión de tareas (To-Do List) desarrollada con **React** y **Vite** como proyecto de práctica de frontend. Permite crear tareas, organizarlas por categorías y hacer seguimiento del progreso mediante estadísticas.
 
-El objetivo de este ejercicio es desarrollar una aplicación de gestión de tareas utilizando React junto con Vite como base para la configuración del proyecto. La aplicación permitirá a los usuarios crear, visualizar, editar y eliminar tareas de una lista. Cada tarea constará de un título, descripción, fecha de vencimiento y un estado.
+## Funcionalidades
 
-## Requisitos Funcionales
+- Crear nuevas tareas
+- Marcar tareas como **pendientes** o **completadas**
+- Clasificar tareas por **categorías**
+- Panel de **estadísticas**:
+  - Total de tareas
+  - Número de tareas pendientes
+  - Número de tareas completadas
+  - Estadísticas **por categoría**
 
-### 1. Interfaz de Usuario
-- Vista de Lista de Tareas: Mostrar todas las tareas existentes. Cada elemento de la lista debe mostrar el título de la tarea, la fecha de vencimiento y el estado. Además, cada tarea debe tener botones o iconos para editar o eliminar la tarea.
-- Agregar Nueva Tarea: Debe existir un formulario o modal para agregar una nueva tarea. El formulario debe incluir campos para el título, descripción, fecha de vencimiento y estado de la tarea.
-- Editar Tarea: Los usuarios deben poder editar cualquier tarea existente. Esto puede implementarse mediante un formulario similar al de agregar tarea, pero pre-llenado con la información de la tarea seleccionada.
-- Eliminar Tarea: Los usuarios deben poder eliminar cualquier tarea existente, idealmente con una confirmación antes de realizar la acción.
-- Marcar tarea como finalizada: Los usuarios deben poder marcar fácilmente una tarea como finalizada
+## Tecnologías
 
-### 2. Gestión de Estado
-Implementar gestión de estado para manejar la lista de tareas y las operaciones sobre ellas (agregar, editar, eliminar).
+- **React**
+- **Vite**
+- **React Router**
+- **CSS** (estilos propios)
 
-### 3. Filtrado y Ordenamiento
-Opcional: Implementar funcionalidades para filtrar y ordenar las tareas por fecha de vencimiento o estado.
+## Requisitos
 
-## Consideraciones Técnicas
-- Utilizar React con Vite para la configuración inicial del proyecto.
-- Emplear componentes funcionales y hooks de React.
+- Node.js (recomendado: versión LTS)
+- npm
+
+## Instalación y ejecución en local
+
+Clona el repositorio e instala dependencias:
+
+```bash
+git clone https://github.com/SGorlat/To-Do-List.git
+cd To-Do-List
+npm install
+```
