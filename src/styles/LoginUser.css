@@ -1,0 +1,44 @@
+.login-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  margin-top: 30px;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #f8f8f8;
+}
+
+.login-container button {
+  background-color: #4f6ef7; /* El mismo azul de tu botón Agregar Tarea */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+  background-color: #3952c4; /* Oscurece un poco al pasar el ratón */
+}
+
+.login-container h6 {
+  color: rgb(52, 52, 148);
+  font-weight: 400;
+  text-decoration: underline;
+}

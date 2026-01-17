@@ -1,0 +1,349 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(to bottom right, #11cb84, #2575fc);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0; /* Elimina el padding superior */
+}
+
+.main-container {
+  background-color: rgb(245, 237, 237);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 1200px;
+  padding: 80px 30px 30px 30px;
+  text-align: center;
+  margin: 40px auto;
+}
+.app-columns {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.form-columns {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.display-columns {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+  border: 1px solid rgb(77, 76, 76);
+}
+
+.form input,
+.form select {
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: rgb(245, 237, 237);
+  border: 1px solid rgb(77, 76, 76);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Focus */
+.form input:focus,
+.form select:focus {
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
+  border: 1px solid #007bff;
+}
+
+.form button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.form button:hover {
+  background-color: #3b59d4;
+}
+
+/* Opciones coloreadas SELECT (al desplegar) */
+.form select option[value="pendiente"] {
+  background-color: #e67e22;
+  color: white;
+  font-weight: bold;
+}
+.form select option[value="completada"] {
+  background-color: #2ecc71;
+  color: white;
+  font-weight: bold;
+}
+.form select option[value="No-iniciada"] {
+  background-color: #bfbfbf;
+  color: #333;
+  font-weight: bold;
+}
+
+/* Lista de tareas */
+.list-task {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+/* Tarjetas de tareas */
+.task-card {
+  background: #f9f9f9;
+  padding: 16px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+  box-shadow: 5px 10px 14px rgba(0, 0, 0, 0.329);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  min-height: 60px;
+  overflow: hidden;
+  border: 2px solid #4a6df7b0;
+}
+
+.task-card:hover {
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+  transform: scale(1.01);
+}
+
+/* Texto tachado */
+.task-card del {
+  color: #888;
+}
+
+/* Botones ocultos*/
+.task-actions {
+  display: none;
+  margin-top: 10px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.task-card.expanded .task-actions {
+  display: flex;
+}
+
+/* Botones con iconos */
+.btn-icon {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #4a6cf7;
+  transition: all 0.2s ease;
+}
+
+.btn-icon:hover {
+  background-color: #c6c6c6;
+  transform: scale(1.15);
+}
+
+/* Etiqueta de estado */
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+}
+
+/* Colores por estado */
+.tag-No-iniciada {
+  background-color: #cb1b1b;
+  color: #f3eded;
+}
+
+.tag-pendiente {
+  background-color: #ffcc00;
+  color: #333;
+}
+
+.tag-completada {
+  background-color: #4caf50;
+  color: white;
+}
+/* Filtros, búsqueda y orden */
+select,
+input[type="search"],
+#btn-order {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin: 5px;
+  font-size: 14px;
+}
+
+input[type="search"] {
+  width: 60%;
+  background-color: #f7f7f7;
+}
+
+/* Botón de ordenar */
+#btn-order {
+  background-color: #4a6cf7;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#btn-order:hover {
+  background-color: #3b59d4;
+}
+
+/* Resumen de tareas*/
+.task-summary {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.task-summary span {
+  font-weight: bold;
+}
+.task-summary .pending {
+  color: #e74c3c; /* rojo */
+}
+.task-summary .completed {
+  color: #27ae60; /* verde */
+}
+
+.titulo-tareas {
+  font-size: 1.6rem;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #333;
+}
+.sintareas {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem auto;
+  max-width: 500px;
+}
+
+.categorias-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+
+.categoria-card {
+  width: 130px;
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.categoria-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.categoria-card.active {
+  border: 3px solid rgb(255, 255, 255);
+}
+
+/* Colores */
+.categoria-indigo {
+  background-color: #6610f2;
+}
+.categoria-blue {
+  background-color: #007bff;
+}
+
+.categoria-green {
+  background-color: #28a745;
+}
+
+.categoria-orange {
+  background-color: #fd7e14;
+}
+
+.categoria-gray {
+  background-color: gray;
+}
+
+.fecha-completado {
+  font-size: 0.85rem;
+  color: #0b7300;
+  font-style: italic;
+}
+
+.tag.categoria-trabajo {
+  background-color: #007bff;
+  color: white;
+  margin: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tag.categoria-casa {
+  background-color: #28a745;
+  color: white;
+  margin: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tag.categoria-personal {
+  background-color: #fd7e14;
+  color: white;
+  margin: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tag.categoria-otras {
+  background-color: gray;
+  color: white;
+  margin: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.tag.categoria-todas {
+  background-color: #6610f2;
+  color: white;
+  margin: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
