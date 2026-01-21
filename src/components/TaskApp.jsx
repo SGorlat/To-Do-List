@@ -37,7 +37,7 @@ function TaskApp({ tasks, setTasks }) {
     ) {
       return window.alert("Completa todos los campos");
     }
-    if (edit === true) {
+    if (edit) {
       saveChanges(indexEditedTask);
     } else {
       addTasks();
@@ -47,6 +47,13 @@ function TaskApp({ tasks, setTasks }) {
     try {
       const id = tasks[indexEditedTask]._id;
       const response = await updateTask(id, newTasks);
+
+      // if (!response.ok) {
+      //   const errText = await response.text();
+      //   console.error("PUT failed:", response.status, errText);
+      //   return;
+      // }
+
       const data = await response.json();
       const updatedTask = data.updatedTask || data;
 
