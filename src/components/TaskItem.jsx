@@ -10,6 +10,15 @@ const TaskItem = ({
   editTasks,
 }) => {
   const [expanded, setExpanded] = useState(false);
+  const status = task.status ?? (task.completed ? "completada" : "pendiente");
+
+  console.log(
+    "dueDate raw:",
+    task.dueDate,
+    typeof task.dueDate,
+    "parsed:",
+    new Date(task.dueDate),
+  );
 
   return (
     <li
@@ -17,7 +26,7 @@ const TaskItem = ({
       onClick={() => setExpanded(!expanded)}
     >
       <div className="task-container">
-        {task.status === "completada" ? (
+        {status === "completada" ? (
           <del>
             <strong>{task.title}</strong> <strong>-</strong> {task.description}{" "}
             <strong>-</strong>{" "}
@@ -46,7 +55,7 @@ const TaskItem = ({
             </span>
           </>
         )}
-        <p className={`tag tag-${task.status}`}>{task.status.toUpperCase()}</p>
+        <p className={`tag tag-${status}`}>{status.toUpperCase()}</p>
       </div>
       <div className="task-actions">
         <button className="btn-icon" onClick={() => deleteTasks(task)}>
@@ -56,7 +65,7 @@ const TaskItem = ({
           <FaEdit />
         </button>
         <button className="btn-icon" onClick={() => toggleCompleted(indexTask)}>
-          {task.status === "completada" ? <FaUndo /> : <FaCheck />}
+          {status === "completada" ? <FaUndo /> : <FaCheck />}
         </button>
       </div>
     </li>

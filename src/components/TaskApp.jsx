@@ -87,10 +87,13 @@ function TaskApp({ tasks, setTasks }) {
 
   const addTasks = async () => {
     try {
-      const response = await addTask(newTasks); // Llamada al backend usando addTask con los nuevos datos del frontend
-      const data = await response.json(); // Esperamos los datos que le han llegado al backend y la respuesta en formato json
-      const nuevaTarea = data.newTask;
-      console.log("Nueva tarea creada y guardada en backend", nuevaTarea);
+      const data = await addTask(newTasks); // Llamada al backend usando addTask con los nuevos datos del frontend
+      const nuevaTarea = {
+        ...newTasks, // title, description, dueDate, status, category
+        _id: data.id, // porque el resto de tu app usa task._id
+      };
+
+      console.log("Nueva tarea creada (frontend + id backend)", nuevaTarea);
       setTasks((prevTasks) => [nuevaTarea, ...prevTasks]); // Se guarda la tarea arriba del todo y actualizamos estado tareas.
       resetForm(); // reseteamos el form
     } catch (error) {
@@ -157,11 +160,11 @@ function TaskApp({ tasks, setTasks }) {
   };
   const doneTasks = tasks.some((task) => task.status === "completada");
   const totalPendingTasks = tasks.filter(
-    (task) => task.status === "pendiente"
+    (task) => task.status === "pendiente",
   ).length;
 
   const totalDoneTasks = tasks.filter(
-    (task) => task.status === "completada"
+    (task) => task.status === "completada",
   ).length;
   const totalTasks = tasks.length;
 
